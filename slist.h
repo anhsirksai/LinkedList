@@ -44,6 +44,7 @@ void slink_list_delete(slink_list *list, unsigned int index);
 void slink_list_foreach(slink_list *list, slink_list_callback callback);
 void slink_list_traverse(slink_list *list);
 void slink_list_reverse(slink_list *list);
+slink_node *slink_list_intersection(slink_list *list1, slink_list *list2);
 
 /* test single link list */
 void slink_list_test_main(void);

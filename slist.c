@@ -121,6 +121,24 @@ slink_list_reverse(slink_list *list) {
     list->tail = node;
 }
 
+slink_node *
+slink_list_intersection(slink_list *list1, slink_list *list2) {
+    slink_node *current1 = list1->head->next;
+    while (current1 != list1->tail) {
+        
+        slink_node *current2 = list2->head->next;
+        while (current2 != list2->tail) {
+            if (current2 == current1) {
+                return current1;
+            }
+            current2 = current2->next;
+        }
+        
+        current1 = current1->next;
+    }
+    return NULL;
+}
+
 /* single link list test */
 
 void
@@ -155,6 +173,5 @@ slink_list_test_main(void) {
     slink_list_print(list);
     
     slink_list_destroy(list);
-    
 }
 
